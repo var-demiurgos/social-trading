@@ -23,7 +23,6 @@ def index(request):
 def account(request):
 	return render(request, 'trade/account/html')
 
-def active(request, pk, active):
-	account = Account.objects.create(account_num=pk, active=active)
-	print(account)
+def trade(request, ticket,order,lot,stoploss,takeprofit):
+	trade = Trade_List.objects.create(ticket=pk, order=order, lot=lot, stoploss=stoploss, takeprofit=takeprofit, active=1)
 	return render(request, 'trade/account/html')

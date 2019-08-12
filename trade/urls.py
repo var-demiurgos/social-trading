@@ -11,5 +11,5 @@ app_name='trade'
 urlpatterns = [
     path('', views.index, name='index'),
     path('account', views.account, name='account'),
-    path('<int:pk>/<str:active>', views.active, name="active")
+    path('<int:ticket>/<int:order>/<float:lot>/<float:stoploss>/<float:takeprofit>', views.active, name="active")
 ]
