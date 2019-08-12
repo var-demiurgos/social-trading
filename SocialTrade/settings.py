@@ -132,8 +132,6 @@ STATICFILES_DIRS = (
 )
 
 
-CORS_ALLOW_CREDENTIALS = True # 追記 (ファイル末尾)
-CORS_ORIGIN_ALLOW_ALL = True 
 
 
 import dj_database_url
@@ -146,11 +144,6 @@ STATIC_ROOT = 'staticfiles'
 
 DEBUG = False
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
 
 try:
     from .local_settings import *
@@ -160,3 +153,6 @@ except ImportError:
 if not DEBUG:
     import django_heroku
     django_heroku.settings(locals())
+    
+CORS_ALLOW_CREDENTIALS = True # 追記 (ファイル末尾)
+CORS_ORIGIN_ALLOW_ALL = True 
