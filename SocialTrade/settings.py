@@ -142,7 +142,7 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = 'staticfiles'
 
-DEBUG = False
+DEBUG = True
 
 
 try:
@@ -150,9 +150,8 @@ try:
 except ImportError:
     pass
 
-if not DEBUG:
-    import django_heroku
-    django_heroku.settings(locals())
-    
+import django_heroku
+django_heroku.settings(locals())
+
 CORS_ALLOW_CREDENTIALS = True # 追記 (ファイル末尾)
 CORS_ORIGIN_ALLOW_ALL = True 
