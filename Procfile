@@ -1,0 +1,1 @@
+web: gunicorn SocialTrade.wsgi --log-file -
