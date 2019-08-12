@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Account(models.Model):
-	account_num = models.IntegerField(blank=False)
-	active      = models.BooleanField()
+	account_num = models.IntegerField(blank=True)
+	active      = models.CharField(max_length=10, blank=True)
 	post_time   = models.DateTimeField(auto_now_add = True)
 
 class Trade_List(models.Model):

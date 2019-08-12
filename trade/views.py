@@ -24,6 +24,6 @@ def account(request):
 	return render(request, 'trade/account/html')
 
 def active(request, pk, active):
-	account = Account.objects.create(account_num="1111111", active="true")
+	account = Account.objects.create(account_num=pk, active=active)
 	print(account)
 	return render(request, 'trade/account/html')
