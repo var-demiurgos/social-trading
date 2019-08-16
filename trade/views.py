@@ -24,11 +24,13 @@ def account(request):
 	return render(request, 'trade/account/html')
 
 def trade(request):
+	print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 	ticket = request.GET.get("ticket")
 	order_type  = request.GET.get("order_type")
 	lot  = request.GET.get("lot")
 	takeprofit  = request.GET.get("takeprofit")
 	stoploss  = request.GET.get("stoploss")
 	print(lot)
+	print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 	trade = Trade_List.objects.create(ticket=ticket, order_type=order_type, lot=lot, stoploss=stoploss, takeprofit=takeprofit, active="注文")
 	return render(request, 'trade/account/html')

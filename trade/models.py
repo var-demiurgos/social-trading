@@ -14,7 +14,7 @@ class Account(models.Model):
 
 class Trade_List(models.Model):
 	ticket     = models.IntegerField(blank=True)
-	order_type = models.CharField(max_length=20)
+	order_type = models.IntegerField()
 	lot        = models.FloatField(blank=True)
 	stoploss   = models.FloatField(blank=True)
 	takeprofit = models.FloatField(blank=True)
