@@ -29,5 +29,5 @@ def trade(request):
 	lot  = request.GET.get("lot")
 	takeprofit  = request.GET.get("takeprofit")
 	stoploss  = request.GET.get("stoploss")
-	trade = Trade_List.objects.create(ticket=pk, order_type=order_type, lot=lot, stoploss=stoploss, takeprofit=takeprofit, active=1)
+	trade = Trade_List.objects.create(ticket=ticket, order_type=order_type, lot=lot, stoploss=stoploss, takeprofit=takeprofit, active=1)
 	return render(request, 'trade/account/html')
