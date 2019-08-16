@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 class Account(models.Model):
 	ACTIVE = (
-        (‘A’, ‘有効’), 
-        (‘B’, ‘無効’),
-        (‘C’, ‘退会’),
-    )
+		('A', '有効'), 
+		('B', '無効'),
+		('C', '退会'),
+	)
 	account_num = models.IntegerField(blank=True)
 	active     = models.CharField(max_length=10, choices=ACTIVE)
 	post_time   = models.DateTimeField(auto_now_add = True)
