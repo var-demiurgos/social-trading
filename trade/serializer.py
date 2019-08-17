@@ -5,7 +5,7 @@ from .models import Account, Trade_List
 class AccountSerializer(serializers.ModelSerializer):
   class Meta:
     model = Account
-    fields = ('account_num', 'active','post_time')
+    fields = ('account_num', 'active','post_time','last_login')
 
 
 class Trade_ListSerializer(serializers.ModelSerializer):
