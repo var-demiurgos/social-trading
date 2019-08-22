@@ -7,16 +7,18 @@ class Account(models.Model):
 		('B', '無効'),
 		('C', '退会'),
 	)
-	account_num = models.IntegerField(blank=True)
-	active     = models.CharField(max_length=10, choices=ACTIVE)
-	post_time   = models.DateTimeField(auto_now_add = True)
-	last_login  = models.DateTimeField(blank=True)
+	account_id   = models.IntegerField()
+	account_pass = models.CharField(max_length=100)
+	account_num  = models.IntegerField(blank=True)
+	active       = models.CharField(max_length=10, choices=ACTIVE)
+	post_time    = models.DateTimeField(auto_now_add = True)
+	last_login   = models.DateTimeField(blank=True)
+	comment       = models.TextField(max_length=4000)
 
 class Trade_List(models.Model):
-	ticket     = models.IntegerField(blank=True)
+	ticket     = models.IntegerField()
 	order_type = models.IntegerField()
-	lot        = models.FloatField(blank=True)
-	stoploss   = models.FloatField(blank=True)
-	takeprofit = models.FloatField(blank=True)
-	active     = models.CharField(max_length=10)
-	post_time  = models.DateTimeField(auto_now_add = True)
+	lot        = models.FloatField()
+	stoploss   = models.FloatField()
+	takeprofit = models.FloatField()
+	price      = models.IntegerField()
