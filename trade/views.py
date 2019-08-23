@@ -10,11 +10,11 @@ from .models import Account, Trade_List
 from .serializer import AccountSerializer, Trade_ListSerializer
 
 class AccountViewSet(viewsets.ModelViewSet):
-    queryset = Account.objects.all().order_by('-post_time')
+    queryset = Account.objects.all()
     serializer_class = AccountSerializer
 
 class Trade_ListViewSet(viewsets.ModelViewSet):
-    queryset = Trade_List.objects.all().order_by('-post_time')
+    queryset = Trade_List.objects.all()
     serializer_class = Trade_ListSerializer
 
 def index(request):
