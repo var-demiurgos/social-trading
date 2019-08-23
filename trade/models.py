@@ -21,4 +21,4 @@ class Trade_List(models.Model):
 	lot        = models.FloatField()
 	stoploss   = models.FloatField()
 	takeprofit = models.FloatField()
-	price      = models.IntegerField()
+	price      = models.FloatField()
