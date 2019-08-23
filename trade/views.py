@@ -19,7 +19,8 @@ class Trade_ListViewSet(viewsets.ModelViewSet):
 
 def index(request):
 	data = Trade_List.objects.all()
-	return render(request, 'trade/index.html')
+	params = {'data':data}
+	return render(request, 'trade/index.html',params)
 
 def account(request):
 	return render(request, 'trade/account/html')
