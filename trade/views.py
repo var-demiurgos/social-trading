@@ -10,12 +10,12 @@ from .models import Account, Trade_List
 from .serializer import AccountSerializer, Trade_ListSerializer
 
 class AccountViewSet(viewsets.ModelViewSet):
-    queryset = Account.objects.all()
-    serializer_class = AccountSerializer
+	queryset         = Account.objects.all()
+	serializer_class = AccountSerializer
 
 class Trade_ListViewSet(viewsets.ModelViewSet):
-    queryset = Trade_List.objects.all()
-    serializer_class = Trade_ListSerializer
+	queryset         = Trade_List.objects.all()
+	serializer_class = Trade_ListSerializer
 
 def index(request):
 	return render(request, 'trade/index.html')
@@ -24,13 +24,11 @@ def account(request):
 	return render(request, 'trade/account/html')
 
 def trade(request):
-	print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-	ticket = request.GET.get("ticket")
-	order_type  = request.GET.get("order_type")
-	lot  = request.GET.get("lot")
-	takeprofit  = request.GET.get("takeprofit")
-	stoploss  = request.GET.get("stoploss")
-	print(lot)
-	print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-	trade = Trade_List.objects.create(ticket=ticket, order_type=order_type, lot=lot, stoploss=stoploss, takeprofit=takeprofit, active="注文")
+	ticket     = request.GET.get("ticket")
+	order_type = request.GET.get("order_type")
+	lot        = request.GET.get("lot")
+	takeprofit = request.GET.get("takeprofit")
+	stoploss   = request.GET.get("stoploss")
+	price      = request.GET.get("price")
+	trade      = Trade_List.objects.create(ticket=ticket, order_type=order_type, lot=lot, stoploss=stoploss, takeprofit=takeprofit, price=price)
 	return render(request, 'trade/account/html')
