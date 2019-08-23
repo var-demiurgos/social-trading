@@ -18,7 +18,8 @@ class Trade_ListViewSet(viewsets.ModelViewSet):
 	serializer_class = Trade_ListSerializer
 
 def index(request):
-	return render(request, 'trade/index.html')
+	price = Trade_List.objects.all()
+	return render(request, 'trade/index.html', price)
 
 def account(request):
 	return render(request, 'trade/account/html')

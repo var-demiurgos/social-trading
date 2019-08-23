@@ -4,6 +4,8 @@
 	<title>SocialTrade</title>
 </head>
 <body>
-	<p>OK</p>
+	{% for p in price %}
+		{{ p.price }}
+	{% endfor %}
 </body>
 </html>
