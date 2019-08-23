@@ -25,6 +25,12 @@ def index(request):
 def account(request):
 	return render(request, 'trade/account/html')
 
+def close(request):
+	ticket = request.GET.get("ticket")
+	trade  = Trade_List.objects.get(ticket=ticket)
+	trade.delete()
+	return render(request, 'trade/account/html')
+
 def trade(request):
 	ticket     = request.GET.get("ticket")
 	order_type = request.GET.get("order_type")
@@ -32,5 +38,6 @@ def trade(request):
 	takeprofit = request.GET.get("takeprofit")
 	stoploss   = request.GET.get("stoploss")
 	open_price = request.GET.get("open_price")
-	trade      = Trade_List.objects.create(ticket=ticket, order_type=order_type, lot=lot, stoploss=stoploss, takeprofit=takeprofit, open_price=open_price)
+
+	trade      = Trade_List.objects.update_or_create(ticket=ticket, defaluts={"order_type":order_type, "lot":lot, "stoploss":stoploss, "takeprofit":takeprofit, "open_price":open_price})
 	return render(request, 'trade/account/html')
