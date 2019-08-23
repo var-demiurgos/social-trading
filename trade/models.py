@@ -16,9 +16,9 @@ class Account(models.Model):
 	comment       = models.TextField(max_length=4000)
 
 class Trade_List(models.Model):
-	ticket     = models.IntegerField()
-	order_type = models.IntegerField()
-	lot        = models.DecimalField(max_digits=10, decimal_places=5)
-	stoploss   = models.DecimalField(max_digits=10, decimal_places=5)
-	takeprofit = models.DecimalField(max_digits=10, decimal_places=5)
-	price      = models.DecimalField(max_digits=10, decimal_places=5)
+	ticket     = models.CharField(max_length=20)
+	order_type = models.CharField(max_length=20)
+	lot        = models.CharField(max_length=20)
+	stoploss   = models.CharField(max_length=20)
+	takeprofit = models.CharField(max_length=20)
+	price      = models.CharField(max_length=20)
