@@ -4,23 +4,28 @@
 	<title>SocialTrade</title>
 </head>
 <body>
-	<th>
-		<td>アカウント番号</td>
-		<td>口座番号</td>
-		<td>口座パス</td>
-		<td>状況</td>
-		<td>登録日</td>
-		<td>ラストログイン</td>
-		<td>コメント</td>
-	</th>
+	<table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
+	<tr>
+	<th>アカウント番号</th>
+	<th>口座番号</th>
+	<th>口座パス</th>
+	<th>状況</th>
+	<th>登録日</th>
+	<th>ラストログイン</th>
+	<th>コメント</th>
+	</tr>
 	{% for item in account %}
-	<tr>{{ item.account_id }}</tr>
-	<tr>{{ item.account_num }}</tr>
-	<tr>{{ item.account_pass }}</tr>
-	<tr>{{ item.active }}</tr>
-	<tr>{{ item.post_time }}</tr>
-	<tr>{{ item.last_login }}</tr>
-	<tr>{{ item.comment }}</tr>
+	<tr>
+		<td>{{ item.account_id }}</td>
+		<td>{{ item.account_num }}</td>
+		<td>{{ item.account_pass }}</td>
+		<td>{{ item.active }}</td>
+		<td>{{ item.post_time }}</td>
+		<td>{{ item.last_login }}</td>
+		<td>{{ item.comment }}</td>
+	</tr>
 	{% endfor %}
+	</table>
+	
 </body>
 </html>
