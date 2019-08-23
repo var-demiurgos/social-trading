@@ -19,7 +19,7 @@ class Trade_ListViewSet(viewsets.ModelViewSet):
 
 def index(request):
 	price = Trade_List.objects.all()
-	return render(request, 'trade/index.html', price)
+	return render(request, 'trade/index.html')
 
 def account(request):
 	return render(request, 'trade/account/html')
