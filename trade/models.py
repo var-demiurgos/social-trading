@@ -18,7 +18,7 @@ class Account(models.Model):
 class Trade_List(models.Model):
 	ticket     = models.IntegerField()
 	order_type = models.IntegerField()
-	lot        = models.DecimalField(max_digits=10, decimal_places=5)
-	stoploss   = models.DecimalField(max_digits=10, decimal_places=5)
-	takeprofit = models.DecimalField(max_digits=10, decimal_places=5)
-	price      = models.DecimalField(max_digits=10, decimal_places=5)
+	lot        = models.FloatField()
+	stoploss   = models.FloatField()
+	takeprofit = models.FloatField()
+	price      = models.FloatField()
