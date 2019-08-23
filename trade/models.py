@@ -21,4 +21,4 @@ class Trade_List(models.Model):
 	lot        = models.FloatField()
 	stoploss   = models.TextField(max_length=100)
 	takeprofit = models.CharField(max_length=100)
-	price      = models.DecimalField(max_digits = 6, decimal_places = 5)
+	price      = models.DecimalField(max_digits = 6, decimal_places = 5, blank=True, null=True)
