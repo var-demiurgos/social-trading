@@ -25,7 +25,7 @@ def index(request):
 def account(request):
 	account = Account.objects.all()
 	context = {"account": account}
-	return render(request, 'trade/account/html', context)
+	return render(request, 'trade/account.html', context)
 
 def close(request):
 	ticket = request.GET.get("ticket")
