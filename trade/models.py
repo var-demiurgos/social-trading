@@ -13,12 +13,12 @@ class Account(models.Model):
 	active       = models.CharField(max_length=10, choices=ACTIVE)
 	post_time    = models.DateTimeField(auto_now_add = True)
 	last_login   = models.DateTimeField(blank=True)
-	comment       = models.TextField(max_length=4000)
+	comment      = models.TextField(max_length=4000)
 
 class Trade_List(models.Model):
-	ticket     = models.IntegerField()
 	order_type = models.IntegerField()
 	lot        = models.FloatField()
 	stoploss   = models.TextField(max_length=100)
 	takeprofit = models.CharField(max_length=100)
 	price      = models.CharField(max_length=100)
+	ticket     = models.IntegerField()
