@@ -20,5 +20,5 @@ class Trade_List(models.Model):
 	lot        = models.FloatField()
 	stoploss   = models.TextField(max_length=100)
 	takeprofit = models.CharField(max_length=100)
-	price      = models.CharField(max_length=100)
+	open_price = models.CharField(max_length=100)
 	ticket     = models.IntegerField()

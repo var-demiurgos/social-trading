@@ -11,4 +11,4 @@ class AccountSerializer(serializers.ModelSerializer):
 class Trade_ListSerializer(serializers.ModelSerializer):
   class Meta:
     model = Trade_List
-    fields = ('ticket','order_type','lot','stoploss','takeprofit','price')
+    fields = ('ticket','order_type','lot','stoploss','takeprofit','open_price')
