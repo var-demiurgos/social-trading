@@ -11,5 +11,6 @@ app_name='trade'
 urlpatterns = [
     path('', views.index, name='index'),
     path('account', views.account, name='account'),
-    path('trade', views.trade, name="trade")
+    path('trade', views.trade, name="trade"),
+    path('close', views.close, name="close")
 ]

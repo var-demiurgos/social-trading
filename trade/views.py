@@ -39,5 +39,5 @@ def trade(request):
 	stoploss   = request.GET.get("stoploss")
 	open_price = request.GET.get("open_price")
 
-	trade      = Trade_List.objects.update_or_create(ticket=ticket, defaluts={"order_type":order_type, "lot":lot, "stoploss":stoploss, "takeprofit":takeprofit, "open_price":open_price})
+	trade      = Trade_List.objects.update_or_create(ticket=ticket, defaults={"order_type":order_type, "lot":lot, "stoploss":stoploss, "takeprofit":takeprofit, "open_price":open_price})
 	return render(request, 'trade/account/html')
