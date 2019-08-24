@@ -27,25 +27,21 @@ def account(request):
 	context = {"account": account}
 	return render(request, 'trade/account.html', context)
 
-class Account(ListView, ModelFormMixin):
+class AccountList(ListView):
     model = Account
-    fields = '__all__'
-    success_url = reverse_lazy('app:list_and_create')  # このビュー自身!
     template_name = 'trade/account.html'
- 
- 
-    def get(self, request, *args, **kwargs):
-        self.object = None
-        return super().get(request, *args, **kwargs)
- 
-    def post(self, request, *args, **kwargs):
-        self.object = None
-        self.object_list = self.get_queryset()
-        form = self.get_form()
-        if form.is_valid():
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
+
+class AccountEdit(UpdateView):
+    model = Account
+    form_class = AccountForm
+    template_name = 'trade/account_form.html'
+    success_url = "/"
+
+class AccountCreate(CreateView):
+    model = Account
+    form_class = AccountForm
+    template_name = 'trade/account_form.html'
+    success_url = "/"
 
 def close(request):
 	ticket = request.GET.get("ticket")
