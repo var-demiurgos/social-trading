@@ -4,28 +4,42 @@
 	<title>SocialTrade</title>
 </head>
 <body>
-	<table>
+	<h2>記事一覧</h2>
+	<table class="table">
 	<tr>
-	<th>アカウント番号</th>
-	<th>口座番号</th>
-	<th>口座パス</th>
-	<th>状況</th>
-	<th>登録日</th>
-	<th>ラストログイン</th>
-	<th>コメント</th>
+		<th>アカウント番号</th>
+		<th>口座番号</th>
+		<th>口座パス</th>
+		<th>状況</th>
+		<th>登録日</th>
+		<th>ラストログイン</th>
+		<th>コメント</th>
 	</tr>
-	{% for item in account %}
-	<tr>
-		<td>{{ item.account_id }}</td>
+    {% for item in account %}
+    <tr>
+        <td>{{ item.account_id }}</td>
 		<td>{{ item.account_num }}</td>
 		<td>{{ item.account_pass }}</td>
 		<td>{{ item.get_active_display }}</td>
 		<td>{{ item.post_time }}</td>
 		<td>{{ item.last_login }}</td>
 		<td>{{ item.comment }}</td>
-	</tr>
-	{% endfor %}
+    </tr>
+    {% endfor %}
 	</table>
-	
+	 
+	<h2>記事作成</h2>
+	<form action="" method="POST">
+	  {{ form.non_field_errors }}
+	  {% for field in form %}
+	    <div class="form-group">
+	        <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+	        {{ field }}
+	        {{ field.errors }}
+	    </div>
+	  {% endfor %}
+	  {% csrf_token %}
+	  <button type="submit" class="btn btn-primary">送信</button>
+	</form>
 </body>
 </html>
