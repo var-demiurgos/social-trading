@@ -12,7 +12,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('account', views.AccountList.as_view(), name='account'),
     path('account/create', views.AccountCreate.as_view(), name='create'),
-    path('account/edit', views.AccountEdit.as_view(), name='edit'),
+    path('account/edit/<int:pk>', views.AccountEdit.as_view(), name='edit'),
     path('trade', views.trade, name="trade"),
     path('close', views.close, name="close")
 ]
