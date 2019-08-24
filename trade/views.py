@@ -36,13 +36,13 @@ class AccountEdit(UpdateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
-    success_url = "/"
+    success_url = "trade/account.html"
 
 class AccountCreate(CreateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
-    success_url = "/"
+    success_url = "trade/account.html"
 
 def close(request):
 	ticket = request.GET.get("ticket")
