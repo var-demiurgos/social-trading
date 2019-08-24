@@ -27,7 +27,7 @@ def account(request):
 	context = {"account": account}
 	return render(request, 'trade/account.html', context)
 
-class Account(generic.ListView, ModelFormMixin):
+class Account(ListView, ModelFormMixin):
     model = Account
     fields = '__all__'
     success_url = reverse_lazy('app:list_and_create')  # このビュー自身!
