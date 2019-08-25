@@ -9,8 +9,9 @@
   			<button type="submit" class="btn btn-primary btn-block">送信</button>
   		</form>
 	</div>
+	<p>{{ request.path }}</p>
 
-	{% if edit in request.path %}
+	{% if "edit" in request.path %}
 	<div class="accounts_container">
   		<a href="{% url 'trade:delete' %}"><button type="submit" class="btn btn-danger">削除</button></a>
 	</div>

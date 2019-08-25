@@ -26,6 +26,7 @@
     </tr>
     {% endfor %}
 	</table>
+	<div class="new"><a href="{% url 'trade:create' %}">新規</a></div>
 	<style type="text/css">
 		a{
 			color:#000;
@@ -42,6 +43,9 @@
 		}
 		.table__item-C{
 			opacity: 0.3;
+		}
+		.new{
+			margin-top: 50px;
 		}
 	</style>
 
