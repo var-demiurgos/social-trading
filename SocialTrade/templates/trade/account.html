@@ -1,7 +1,10 @@
 {% extends "trade/base.html" %}
 {% load static %}
 {% block content %}
-	<h2>アカウント一覧</h2>
+	<div class="menu">
+		<div class="new"><a href="{% url 'trade:create' %}"><button type="submit" class="btn btn-primary btn-block">新規</button></a></div>
+		<h2>アカウント一覧</h2>
+	</div>
 	<table class="table">
 	<tr class="table__head">
 		<th>アカウント番号</th>
@@ -23,11 +26,10 @@
 		<td>{{ item.post_time|date:"Y-m-j" }}</td>
 		<td>{{ item.last_login|date:"Y-m-j" }}</td>
 		<td>{{ item.comment }}</td>
-		<td><a href="{% url 'trade:edit' pk=item.id %}">編集</a></td>
+		<td><a href="{% url 'trade:edit' pk=item.id %}"><button type="submit" class="btn btn-success">編集</button></a></td>
 		<td><a href="{% url 'trade:delete' pk=item.id %}"><button type="submit" class="btn btn-danger">削除</button></a></td>
     </tr>
     {% endfor %}
-	<div class="new"><a href="{% url 'trade:create' %}"><button type="submit" class="btn btn-primary btn-block">新規</button></a></div>
 	</table>
 	<style type="text/css">
 		a{
@@ -36,21 +38,19 @@
 		.table{
 			margin-top: 50px;
 			white-space: pre;
-			position: relative;
 		}
 		.table__item-A{
-			color: #dc3545;
+			color: #007bff;
 		}
 		.table__item-B{
-			color: #FF69A3;
+			color: #dc3545;
 		}
 		.table__item-C{
 			opacity: 0.3;
 		}
-		.new{
-			position: absolute;
-			right: 0;
-			top: -50px;
+		.menu{
+			display: flex;
+			justify-content: space-between;
 		}
 	</style>
 
