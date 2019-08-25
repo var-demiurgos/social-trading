@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 class Account(models.Model):
 	ACTIVE = (
@@ -12,7 +12,7 @@ class Account(models.Model):
 	account_num  = models.IntegerField(blank=True)
 	active       = models.CharField(max_length=10, choices=ACTIVE)
 	post_time    = models.DateTimeField(auto_now_add = True)
-	last_login   = models.DateTimeField(blank=True)
+	last_login   = models.DateTimeField(default=timezone.now)
 	comment      = models.TextField(max_length=4000)
 
 class Trade_List(models.Model):
