@@ -29,19 +29,17 @@ def account(request):
 	context = {"account": account}
 	return render(request, 'trade/account.html', context)
 
-@login_required
+
 class AccountList(ListView):
     model = Account
     template_name = 'trade/account.html'
 
-@login_required
 class AccountEdit(UpdateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
     success_url = "trade/account.html"
 
-@login_required
 class AccountCreate(CreateView):
     model = Account
     form_class = AccountForm
@@ -54,6 +52,7 @@ def close(request):
 	trade.delete()
 	return render(request, 'trade/account/html')
 
+
 def trade(request):
 	ticket     = request.GET.get("ticket")
 	order_type = request.GET.get("order_type")
@@ -61,6 +60,5 @@ def trade(request):
 	takeprofit = request.GET.get("takeprofit")
 	stoploss   = request.GET.get("stoploss")
 	open_price = request.GET.get("open_price")
-
 	trade      = Trade_List.objects.update_or_create(ticket=ticket, defaults={"order_type":order_type, "lot":lot, "stoploss":stoploss, "takeprofit":takeprofit, "open_price":open_price})
 	return render(request, 'trade/account/html')
