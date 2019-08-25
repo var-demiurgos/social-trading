@@ -20,7 +20,7 @@ def index(request):
 	return render(request, 'trade/index.html',params)
 
 def account(request):
-	account = Account.objects.all()
+	account = Account.objects.all().order_by('id')
 	context = {"account": account}
 	return render(request, 'trade/account.html', context)
 
@@ -35,13 +35,13 @@ class AccountEdit(UpdateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
-    success_url = "trade/account.html"
+    success_url = "trade:account"
 
 class AccountCreate(CreateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
-    success_url = "trade/account.html"
+    success_url = "trade:account"
 
 def close(request):
 	ticket = request.GET.get("ticket")

@@ -22,16 +22,16 @@
 		<td>{{ item.post_time }}</td>
 		<td>{{ item.last_login }}</td>
 		<td>{{ item.comment }}</td>
-		<td><a herf="{% url 'trade:edit' pk=item.id %}">編集</a></td>
+		<td><a href="{% url 'trade:edit' pk=item.id %}">編集</a></td>
     </tr>
     {% endfor %}
 	</table>
 	<style type="text/css">
 		.table__A{
-			background-color: #59bb0c;
+			background-color: #93FFAB;
 		}
 		.table__B{
-			background-color: #FF367F;
+			background-color: #FF69A3;
 		}
 		.table__C{
 			opacity: 0.3;
