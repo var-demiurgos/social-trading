@@ -25,13 +25,13 @@ class AccountEdit(UpdateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
-    success_url = "/list"
+    success_url = "list"
 
 class AccountCreate(CreateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
-    success_url = "/list"
+    success_url = "list"
 
 
 #MT4からのアクセス用
