@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'trade',
     'corsheaders',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +134,10 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'
 
+LOGIN_URL = 'login'
 
 
 import dj_database_url

@@ -30,6 +30,7 @@ def account(request):
 	return render(request, 'trade/account.html', context)
 
 
+
 class AccountList(ListView):
     model = Account
     template_name = 'trade/account.html'

@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>SocialTrade</title>
-</head>
-<body>
+{% extends "trade/base.html" %}
+{% load static %}
+{% block content %}
 	<p>OK</p>
 	{% for item in data %}
 		<p>{{ item.ticket }}</p>
 		<p>{{ item.takeprofit }}</p>
 	{% endfor %}
-</body>
-</html>
+{% endblock %}
