@@ -22,7 +22,7 @@
 		<td>{{ item.post_time }}</td>
 		<td>{{ item.last_login }}</td>
 		<td>{{ item.comment }}</td>
-		<td><a herf="{ url trade:edit pk=item.id}">編集</a></td>
+		<td><a herf="{% url 'trade:edit' pk=item.id %}">編集</a></td>
     </tr>
     {% endfor %}
 	</table>
