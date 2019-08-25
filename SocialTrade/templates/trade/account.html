@@ -11,9 +11,10 @@
 		<th>登録日</th>
 		<th>ラストログイン</th>
 		<th>コメント</th>
+		<th></th>
 	</tr>
     {% for item in account_list %}
-    <tr class="table__+{{ item.active }}">
+    <tr class="table__{{ item.active }}">
         <td>{{ item.account_id }}</td>
 		<td>{{ item.account_num }}</td>
 		<td>{{ item.account_pass }}</td>
@@ -21,6 +22,7 @@
 		<td>{{ item.post_time }}</td>
 		<td>{{ item.last_login }}</td>
 		<td>{{ item.comment }}</td>
+		<td><a herf="{ url trade:edit pk=item.id}">編集</a></td>
     </tr>
     {% endfor %}
 	</table>
