@@ -25,19 +25,25 @@
 		margin:20px;
 		white-space: nowrap;
 		position: relative;
-		height: 200px;
-		width: 200px;
+		height: 400px;
+		width: 400px;
 	}
 	.select__account p,
 	.select__trade p{
 		position: absolute;
 		top:50%;
 		left: 50%;
+		font-size: 20px;
 		transform: translate(-50%, -50%);
 	}
 	@media screen and (max-width: 480px){
 		.select{
 			display: block;
+		}
+		.select__account,
+		.select__trade{
+			height: 250px;
+			width: 250px;
 		}
 	}
 	</style>
