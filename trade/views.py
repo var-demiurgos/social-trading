@@ -1,15 +1,10 @@
-from django.http import Http404, JsonResponse
-from django.shortcuts import get_object_or_404, render, redirect,render_to_response
-from django.template import RequestContext
-from django.views.generic.edit import ModelFormMixin
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import CreateView, UpdateView, ListView
-import django_filters
-from django.urls import reverse_lazy
-from rest_framework import viewsets, filters
+from rest_framework import viewsets
 from .models import Account, Trade_List
 from .serializer import AccountSerializer, Trade_ListSerializer
 from .forms import AccountForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
 
 class AccountViewSet(viewsets.ModelViewSet):
 	queryset         = Account.objects.all()
