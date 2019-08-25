@@ -6,26 +6,16 @@ from .serializer import AccountSerializer, Trade_ListSerializer
 from .forms import AccountForm
 from django.contrib.auth.views import LoginView
 
-class AccountViewSet(viewsets.ModelViewSet):
-	queryset         = Account.objects.all()
-	serializer_class = AccountSerializer
-
-class Trade_ListViewSet(viewsets.ModelViewSet):
-	queryset         = Trade_List.objects.all()
-	serializer_class = Trade_ListSerializer
 
 def index(request):
-	data = Trade_List.objects.all().order_by("ticket")
-	params = {'data':data}
-	return render(request, 'trade/index.html',params)
-
-def account(request):
-	account = Account.objects.all().order_by('-last_login')
-	context = {"account": account}
-	return render(request, 'trade/account.html', context)
+	return render(request, 'trade/index.html')
 
 class Login(LoginView):
 	template_name = 'trade/login.html'
+
+class TradeList(ListView):
+    model = Trade_List
+    template_name = 'trade/trade.html'
 
 class AccountList(ListView):
     model = Account
@@ -43,12 +33,14 @@ class AccountCreate(CreateView):
     template_name = 'trade/account_form.html'
     success_url = "trade:account"
 
+
+#MT4からのアクセス用
+
 def close(request):
 	ticket = request.GET.get("ticket")
 	trade  = Trade_List.objects.get(ticket=ticket)
 	trade.delete()
 	return render(request, 'trade/account/html')
-
 
 def trade(request):
 	ticket     = request.GET.get("ticket")
@@ -59,3 +51,11 @@ def trade(request):
 	open_price = request.GET.get("open_price")
 	trade      = Trade_List.objects.update_or_create(ticket=ticket, defaults={"order_type":order_type, "lot":lot, "stoploss":stoploss, "takeprofit":takeprofit, "open_price":open_price})
 	return render(request, 'trade/account/html')
+
+class AccountViewSet(viewsets.ModelViewSet):
+	queryset         = Account.objects.all()
+	serializer_class = AccountSerializer
+
+class Trade_ListViewSet(viewsets.ModelViewSet):
+	queryset         = Trade_List.objects.all()
+	serializer_class = Trade_ListSerializer
