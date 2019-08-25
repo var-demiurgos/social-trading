@@ -3,6 +3,7 @@ from . import views
 from rest_framework import routers
 from .views import AccountViewSet, Trade_ListViewSet
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
 
 router = routers.DefaultRouter()
 router.register(r'account', AccountViewSet)
