@@ -134,10 +134,10 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-LOGOUT_REDIRECT_URL = 'home'
-LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'trade:account'
+LOGIN_REDIRECT_URL = 'trade:login'
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'trade:login'
 
 
 import dj_database_url
