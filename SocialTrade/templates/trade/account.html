@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
 	<div class="menu">
-		<div class="new"><a href="{% url 'trade:create' %}"><button type="submit" class="btn btn-primary btn-block">新規</button></a></div>
 		<h2>アカウント一覧</h2>
+		<div class="new"><a href="{% url 'trade:create' %}"><button type="submit" class="btn btn-primary btn-block">新規</button></a></div>
 	</div>
 	<table class="table">
 	<tr class="table__head">
@@ -51,6 +51,7 @@
 		.menu{
 			display: flex;
 			justify-content: space-between;
+			margin:0.75rem;
 		}
 	</style>
 
