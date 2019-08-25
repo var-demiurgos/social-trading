@@ -12,7 +12,7 @@ router.register(r'trade_list', Trade_ListViewSet)
 app_name='trade'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('login', auth_views.LoginView.as_view(template_name='trade/login.html'), name='login'),
+    path('login', views.Login.as_view(), name='login'),
     path('account', login_required(views.AccountList.as_view()), name='account'),
     path('account/create', login_required(views.AccountCreate.as_view()), name='create'),
     path('account/edit/<int:pk>', login_required(views.AccountEdit.as_view()), name='edit'),

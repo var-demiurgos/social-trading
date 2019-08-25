@@ -29,7 +29,8 @@ def account(request):
 	context = {"account": account}
 	return render(request, 'trade/account.html', context)
 
-
+class Login(LoginView):
+	template_name = 'trade/login.html'
 
 class AccountList(ListView):
     model = Account
