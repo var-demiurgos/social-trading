@@ -10,7 +10,7 @@
 		<th>利確</th>
 		<th>価格</th>
 	</tr>
-    {% for item in data %}
+    {% for item in trade_list_list %}
     <tr class="table__{{ item.active }}">
     	{% if item.order_type == 0 %}
         	<td>買い</td>

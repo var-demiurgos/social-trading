@@ -1,13 +1,24 @@
 {% extends "trade/base.html" %}
 {% load static %}
 {% block content %}
-<div class="select__list">
-	<div class="select__list__account"><a href="{% url 'trade:account' %}">アカウント一覧</a></div>
-	<div class="select__list__trade"><a href="{% url 'trade:trades' %}">トレード一覧</a></div>
+<div class="select">
+	<div class="select__list">
+		<a href="{% url 'trade:account' %}"><div class="select__list__account">アカウント一覧</div></a>
+		<a href="{% url 'trade:trades' %}"><div class="select__list__trade">トレード一覧</div></a>
+	</div>
 </div>
 <style type="text/css">
+	.select{
+		position: relative;
+		height: 100vh;
+	}
 	.select__list{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		display: flex;
+		justify-content: center;
 	}
 	.select__list__account,
 	.select__list__trade{
