@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.views.generic import CreateView, UpdateView, ListView
+from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from rest_framework import viewsets
 from .models import Account, Trade_List
 from .serializer import AccountSerializer, Trade_ListSerializer
@@ -25,7 +25,7 @@ class AccountEdit(UpdateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
-    success_url = "list"
+    success_url = "/trade/account/list"
 
 class AccountCreate(CreateView):
     model = Account
@@ -33,6 +33,9 @@ class AccountCreate(CreateView):
     template_name = 'trade/account_form.html'
     success_url = "list"
 
+class AccountDelete(DeleteView):
+	model = Account
+	success_url = "list"
 
 #MT4からのアクセス用
 

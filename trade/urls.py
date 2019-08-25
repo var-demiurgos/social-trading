@@ -17,6 +17,7 @@ urlpatterns = [
     path('trade/list', views.TradeList.as_view(), name='trades'),
     path('account/create',views.AccountCreate.as_view(), name='create'),
     path('account/edit/<int:pk>', views.AccountEdit.as_view(), name='edit'),
+    path('account/delete/<int:pk>', views.AccountDelete.as_view(), name='edit'),
     path('trade', views.trade, name="trade"),
     path('close', views.close, name="close")
 ]
