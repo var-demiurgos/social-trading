@@ -9,6 +9,7 @@ from rest_framework import viewsets, filters
 from .models import Account, Trade_List
 from .serializer import AccountSerializer, Trade_ListSerializer
 from .forms import AccountForm
+from django.contrib.auth.decorators import login_required
 
 class AccountViewSet(viewsets.ModelViewSet):
 	queryset         = Account.objects.all()
@@ -28,16 +29,19 @@ def account(request):
 	context = {"account": account}
 	return render(request, 'trade/account.html', context)
 
+@login_required
 class AccountList(ListView):
     model = Account
     template_name = 'trade/account.html'
 
+@login_required
 class AccountEdit(UpdateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
     success_url = "trade/account.html"
 
+@login_required
 class AccountCreate(CreateView):
     model = Account
     form_class = AccountForm
