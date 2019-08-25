@@ -1,7 +1,7 @@
 {% extends "trade/base.html" %}
 {% load static %}
 {% block content %}
-	<h2>記事一覧</h2>
+	<h2>アカウント一覧</h2>
 	<table class="table">
 	<tr>
 		<th>アカウント番号</th>
@@ -13,7 +13,7 @@
 		<th>コメント</th>
 	</tr>
     {% for item in account_list %}
-    <tr>
+    <tr class="table__+{{ item.active }}">
         <td>{{ item.account_id }}</td>
 		<td>{{ item.account_num }}</td>
 		<td>{{ item.account_pass }}</td>
@@ -24,5 +24,17 @@
     </tr>
     {% endfor %}
 	</table>
+	<style type="text/css">
+		.table__A{
+			background-color: #59bb0c;
+		}
+		.table__B{
+			background-color: #FF367F;
+		}
+		.table__C{
+			opacity: 0.3;
+		}
+
+	</style>
 
 {% endblock %}
