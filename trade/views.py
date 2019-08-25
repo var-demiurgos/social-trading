@@ -35,7 +35,7 @@ class AccountCreate(CreateView):
 
 class AccountDelete(DeleteView):
 	model = Account
-	success_url = "list"
+	success_url = "/trade/account/list"
 
 #MT4からのアクセス用
 

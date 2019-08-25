@@ -12,7 +12,7 @@
 
 	{% if edit in request.path %}
 	<div class="accounts_container">
-  		<a href="{% url 'trade:delete' %}"><button type="submit" class="btn btn-primary btn-block" style="background-color: magenta;">削除</button></a>
+  		<a href="{% url 'trade:delete' %}"><button type="submit" class="btn btn-danger">削除</button></a>
 	</div>
 	{% endif %}
 {% endblock %}
