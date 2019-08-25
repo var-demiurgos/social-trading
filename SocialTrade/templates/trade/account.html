@@ -26,8 +26,8 @@
 		<td>{{ item.post_time|date:"Y-m-j" }}</td>
 		<td>{{ item.last_login|date:"Y-m-j" }}</td>
 		<td>{{ item.comment }}</td>
-		<td><a href="{% url 'trade:edit' pk=item.id %}"><button type="submit" class="btn btn-success">編集</button></a></td>
-		<td><a href="{% url 'trade:delete' pk=item.id %}"><button type="submit" class="btn btn-danger">削除</button></a></td>
+		<td class="table__item__btn"><a href="{% url 'trade:edit' pk=item.id %}"><button type="submit" class="btn btn-success">編集</button></a></td>
+		<td class="table__item__btn"><a href="{% url 'trade:delete' pk=item.id %}"><button type="submit" class="btn btn-danger">削除</button></a></td>
     </tr>
     {% endfor %}
 	</table>
@@ -35,9 +35,17 @@
 		a{
 			color:#000;
 		}
+		.menu{
+			display: flex;
+			justify-content: space-between;
+			margin:0.75rem;
+		}
 		.table{
 			margin-top: 50px;
 			white-space: pre;
+		}
+		td{
+			vertical-align: middle;
 		}
 		.table__item-A{
 			color: #007bff;
@@ -48,10 +56,8 @@
 		.table__item-C{
 			opacity: 0.3;
 		}
-		.menu{
-			display: flex;
-			justify-content: space-between;
-			margin:0.75rem;
+		.table__item__btn{
+			text-align: end;
 		}
 	</style>
 
