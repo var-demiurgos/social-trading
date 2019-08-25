@@ -19,8 +19,8 @@
 		<td>{{ item.account_num }}</td>
 		<td>{{ item.account_pass }}</td>
 		<td>{{ item.get_active_display }}</td>
-		<td>{{ item.post_time|date:"Y-m-j }}</td>
-		<td>{{ item.last_login|date:"Y-m-j }}</td>
+		<td>{{ item.post_time|date:"Y-m-j" }}</td>
+		<td>{{ item.last_login|date:"Y-m-j" }}</td>
 		<td>{{ item.comment }}</td>
 		<td><a href="{% url 'trade:edit' pk=item.id %}">編集</a></td>
     </tr>
