@@ -1,9 +1,36 @@
 {% extends "trade/base.html" %}
 {% load static %}
 {% block content %}
-	<p>OK</p>
-	{% for item in data %}
-		<p>{{ item.ticket }}</p>
-		<p>{{ item.takeprofit }}</p>
-	{% endfor %}
+<h2>トレード一覧</h2>
+	<table class="table">
+	<tr>
+		<th>ポジション</th>
+		<th>取引量</th>
+		<th>損切</th>
+		<th>利確</th>
+		<th>価格</th>
+	</tr>
+    {% for item in data %}
+    <tr class="table__{{ item.active }}">
+    	{% if item.order_type == 0 %}
+        	<td>買い</td>
+        {% elif item.order_type == 1 %}
+        	<td>売り</td>
+        {% elif item.order_type == 2 %}
+        	<td>買い指値</td>
+        {% elif item.order_type == 3 %}
+        	<td>売り指値</td>
+        {% elif item.order_type == 4 %}
+        	<td>買い逆指値</td>
+        {% elif item.order_type == 5 %}
+        	<td>売り逆指値</td>
+        {% endif %}
+		<td>{{ item.lot }}</td>
+		<td>{{ item.stoploss }}</td>
+		<td>{{ item.takeprofit }}</td>
+		<td>{{ item.price }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+	
 {% endblock %}

@@ -15,12 +15,12 @@ class Trade_ListViewSet(viewsets.ModelViewSet):
 	serializer_class = Trade_ListSerializer
 
 def index(request):
-	data = Trade_List.objects.all()
+	data = Trade_List.objects.all().order_by("ticket")
 	params = {'data':data}
 	return render(request, 'trade/index.html',params)
 
 def account(request):
-	account = Account.objects.all().order_by('id')
+	account = Account.objects.all().order_by('-last_login')
 	context = {"account": account}
 	return render(request, 'trade/account.html', context)
 
