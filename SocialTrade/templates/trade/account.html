@@ -27,18 +27,19 @@
 		<td><a href="{% url 'trade:delete' pk=item.id %}"><button type="submit" class="btn btn-danger">削除</button></a></td>
     </tr>
     {% endfor %}
-	</table>
 	<div class="new"><a href="{% url 'trade:create' %}"><button type="submit" class="btn btn-primary btn-block">新規</button></a></div>
+	</table>
 	<style type="text/css">
 		a{
 			color:#000;
 		}
 		.table{
 			margin-top: 50px;
-			    white-space: pre;
+			white-space: pre;
+			position: relative;
 		}
 		.table__item-A{
-			color: #007bff;
+			color: #dc3545;
 		}
 		.table__item-B{
 			color: #FF69A3;
