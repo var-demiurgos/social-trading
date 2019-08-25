@@ -21,7 +21,7 @@
 		<td>{{ item.lot }}</td>
 		<td>{{ item.stoploss }}</td>
 		<td>{{ item.takeprofit }}</td>
-		<td>{{ item.price }}</td>
+		<td>{{ item.open_price }}</td>
     </tr>
     {% endif %}
     {% endfor %}
@@ -37,7 +37,7 @@
         <th>価格</th>
     </tr>
     {% for item in trade_list_list %}
-    {% if item.order_type == 2 or item.order_type == 3 item.order_type == 4 or item.order_type == 5 %}
+    {% if item.order_type == 2 or item.order_type == 3 or item.order_type == 4 or item.order_type == 5 %}
     <tr class="table__item">
         {% if item.order_type == 2 %}
             <td>買い指値</td>
@@ -51,7 +51,7 @@
         <td>{{ item.lot }}</td>
         <td>{{ item.stoploss }}</td>
         <td>{{ item.takeprofit }}</td>
-        <td>{{ item.price }}</td>
+        <td>{{ item.open_price }}</td>
     </tr>
     {% endif %}
     {% endfor %}
