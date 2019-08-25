@@ -3,7 +3,7 @@
 {% block content %}
 <h2>トレード一覧</h2>
 	<table class="table">
-	<tr>
+	<tr class="table__head">
 		<th>ポジション</th>
 		<th>取引量</th>
 		<th>損切</th>
@@ -11,7 +11,7 @@
 		<th>価格</th>
 	</tr>
     {% for item in trade_list_list %}
-    <tr class="table__{{ item.active }}">
+    <tr class="table__item">
     	{% if item.order_type == 0 %}
         	<td>買い</td>
         {% elif item.order_type == 1 %}
@@ -32,5 +32,9 @@
     </tr>
     {% endfor %}
     </table>
-	
+	<style type="text/css">
+        .table{
+            margin-top: 50px;
+        }   
+    </style>
 {% endblock %}
