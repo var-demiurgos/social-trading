@@ -12,6 +12,7 @@
 		<th>最終ログイン</th>
 		<th>コメント</th>
 		<th></th>
+		<th></th>
 	</tr>
     {% for item in account_list %}
     <tr class="table__item-{{ item.active }}">
@@ -23,10 +24,11 @@
 		<td>{{ item.last_login|date:"Y-m-j" }}</td>
 		<td>{{ item.comment }}</td>
 		<td><a href="{% url 'trade:edit' pk=item.id %}">編集</a></td>
+		<td><a href="{% url 'trade:delete' pk=request.pk %}"><button type="submit" class="btn btn-danger">削除</button></a></td>
     </tr>
     {% endfor %}
 	</table>
-	<div class="new"><a href="{% url 'trade:create' %}">新規</a></div>
+	<div class="new"><a href="{% url 'trade:create' %}"><button type="submit" class="btn btn-primary btn-block">新規</button></a></div>
 	<style type="text/css">
 		a{
 			color:#000;
@@ -45,7 +47,9 @@
 			opacity: 0.3;
 		}
 		.new{
-			margin-top: 50px;
+			position: absolute;
+			right: 0;
+			top: -50px;
 		}
 	</style>
 
