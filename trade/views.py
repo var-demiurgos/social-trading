@@ -61,6 +61,7 @@ class AccountViewSet(viewsets.ModelViewSet):
 
 class AccountFilterViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
+    update = Account.objects.update(last_login=timezone.now)
     serializer_class = AccountSerializer
     filter_class = AccountFilter
 
