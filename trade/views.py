@@ -5,6 +5,7 @@ from .models import Account, Trade_List
 from .serializer import AccountSerializer, Trade_ListSerializer, AccountFilter
 from .forms import AccountForm
 from django.contrib.auth.views import LoginView
+from django.utils import timezone
 
 
 def index(request):
