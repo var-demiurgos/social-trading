@@ -60,7 +60,7 @@ class AccountViewSet(viewsets.ModelViewSet):
 	serializer_class = AccountSerializer
 
 class AccountFilterViewSet(generics.ListAPIView):
-    serializer_class = AccountFilterSerializer
+    serializer_class = AccountSerializer
     def get_queryset(self):
         query_account = self.kwargs['account_num']
         return Account.objects.filter(account_num=query_account)
