@@ -161,3 +161,7 @@ django_heroku.settings(locals())
 
 CORS_ALLOW_CREDENTIALS = True # 追記 (ファイル末尾)
 CORS_ORIGIN_ALLOW_ALL = True 
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
