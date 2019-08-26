@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'trade',
     'corsheaders',
     'widget_tweaks',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
