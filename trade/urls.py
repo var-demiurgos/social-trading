@@ -20,5 +20,5 @@ urlpatterns = [
     path('account/delete/<int:pk>', views.AccountDelete.as_view(), name='delete'),
     path('trade', views.trade, name="trade"),
     path('close', views.close, name="close"),
-    path('account/(<int:account_num)/$',AccountFilterViewSet.as_view()),
+    path('account/(?P<account_num>\w+)/$',AccountFilterViewSet.as_view()),
 ]
