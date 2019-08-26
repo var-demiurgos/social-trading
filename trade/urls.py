@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from rest_framework import routers
-from .views import AccountViewSet, Trade_ListViewSet
+from .views import AccountViewSet, Trade_ListViewSet, AccountFilterViewSet
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 
@@ -19,5 +19,6 @@ urlpatterns = [
     path('account/edit/<int:pk>', views.AccountEdit.as_view(), name='edit'),
     path('account/delete/<int:pk>', views.AccountDelete.as_view(), name='delete'),
     path('trade', views.trade, name="trade"),
-    path('close', views.close, name="close")
+    path('close', views.close, name="close"),
+    path('account/(<int:account_num)/$',AccountFilterViewSet.as_view()),
 ]

@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from .models import Account, Trade_List
 from .serializer import AccountSerializer, Trade_ListSerializer
 from .forms import AccountForm
@@ -58,6 +58,12 @@ def trade(request):
 class AccountViewSet(viewsets.ModelViewSet):
 	queryset         = Account.objects.all()
 	serializer_class = AccountSerializer
+
+class AccountFilterViewSet(generics.ListAPIView):
+    serializer_class = AccountFilterSerializer
+    def get_queryset(self):
+        query_account = self.kwargs['account_num']
+        return Account.objects.filter(account_num=query_account)
 
 class Trade_ListViewSet(viewsets.ModelViewSet):
 	queryset         = Trade_List.objects.all()
