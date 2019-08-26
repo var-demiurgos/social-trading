@@ -12,7 +12,7 @@ class AccountFilter(filters.FilterSet):
 
     class Meta:
         model = Account
-        fields = ('account_id', 'account_pass', 'account_num', 'active', 'post_time', 'last_login', 'comment')
+        fields = ('account_num')
 
 class Trade_ListSerializer(serializers.ModelSerializer):
   class Meta:
