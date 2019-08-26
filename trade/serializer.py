@@ -8,7 +8,7 @@ class AccountSerializer(serializers.ModelSerializer):
     fields = ('account_id', 'account_pass', 'account_num', 'active', 'post_time', 'last_login', 'comment')
 
 class AccountFilter(filters.FilterSet):
-    schema_name = filters.CharFilter( lookup_expr='exact')
+    account_num = filters.CharFilter( lookup_expr='exact')
 
     class Meta:
         model = Account
