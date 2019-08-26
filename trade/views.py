@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from rest_framework import viewsets, generics
 from .models import Account, Trade_List
-from .serializer import AccountSerializer, Trade_ListSerializer
+from .serializer import AccountSerializer, Trade_ListSerializer, AccountFilter
 from .forms import AccountForm
 from django.contrib.auth.views import LoginView
 
@@ -56,17 +56,13 @@ def trade(request):
 	return render(request, 'trade/account/html')
 
 class AccountViewSet(viewsets.ModelViewSet):
-	print("OOOO")
 	queryset         = Account.objects.all()
 	serializer_class = AccountSerializer
 
-class AccountFilterViewSet(generics.ListAPIView):
+class AccountFilterViewSet(viewsets.ModelViewSet):
+    queryset = Account.objects.all()
     serializer_class = AccountSerializer
-    print("KOKOKOK")
-    def get_queryset(self):
-        query_account = self.kwargs['account_num']
-        print(query_account)
-        return Account.objects.get(account_num=query_account)
+    filter_class = AccountFilter
 
 class Trade_ListViewSet(viewsets.ModelViewSet):
 	queryset         = Trade_List.objects.all()

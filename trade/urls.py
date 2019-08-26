@@ -7,6 +7,7 @@ from django.contrib.auth import views as auth_views
 
 router = routers.DefaultRouter()
 router.register(r'account', AccountViewSet)
+router.register(r'search_account', AccountFilterViewSet)
 router.register(r'trade_list', Trade_ListViewSet)
 
 app_name='trade'
@@ -20,5 +21,4 @@ urlpatterns = [
     path('account/delete/<int:pk>', views.AccountDelete.as_view(), name='delete'),
     path('trade', views.trade, name="trade"),
     path('close', views.close, name="close"),
-    path('account/(?P<account_num>\w+)/$',AccountFilterViewSet.as_view()),
 ]

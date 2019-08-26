@@ -7,6 +7,12 @@ class AccountSerializer(serializers.ModelSerializer):
     model = Account
     fields = ('account_id', 'account_pass', 'account_num', 'active', 'post_time', 'last_login', 'comment')
 
+class AccountFilter(filters.FilterSet):
+    schema_name = filters.CharFilter( lookup_expr='exact')
+
+    class Meta:
+        model = Account
+        fields = ('account_id', 'account_pass', 'account_num', 'active', 'post_time', 'last_login', 'comment')
 
 class Trade_ListSerializer(serializers.ModelSerializer):
   class Meta:
