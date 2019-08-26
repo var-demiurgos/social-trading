@@ -63,7 +63,8 @@ class AccountFilterViewSet(generics.ListAPIView):
     serializer_class = AccountSerializer
     def get_queryset(self):
         query_account = self.kwargs['account_num']
-        return Account.objects.filter(account_num=query_account)
+        print(query_account)
+        return Account.objects.get(account_num=query_account)
 
 class Trade_ListViewSet(viewsets.ModelViewSet):
 	queryset         = Trade_List.objects.all()
