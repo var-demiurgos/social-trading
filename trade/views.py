@@ -56,11 +56,13 @@ def trade(request):
 	return render(request, 'trade/account/html')
 
 class AccountViewSet(viewsets.ModelViewSet):
+	print("OOOO")
 	queryset         = Account.objects.all()
 	serializer_class = AccountSerializer
 
 class AccountFilterViewSet(generics.ListAPIView):
     serializer_class = AccountSerializer
+    print("KOKOKOK")
     def get_queryset(self):
         query_account = self.kwargs['account_num']
         print(query_account)
