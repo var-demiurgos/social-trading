@@ -61,7 +61,6 @@ def last_login(request):
 	account  = Account.objects.get(account_num=account_num)
 	account.last_login = timezone.now()
 	account.save()
-	return render(request, 'trade/account/html')
 
 class AccountViewSet(viewsets.ModelViewSet):
 	queryset         = Account.objects.all()
