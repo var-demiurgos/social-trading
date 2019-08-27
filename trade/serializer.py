@@ -11,6 +11,8 @@ class AccountSerializer(serializers.ModelSerializer):
 class AccountFilter(filters.FilterSet):
 	account_num = filters.NumberFilter(lookup_expr='exact')
 	active = filters.CharFilter(lookup_expr='exact')
+
+	class Meta:
 		model = Account
 		fields = ('account_num', 'active')
 
