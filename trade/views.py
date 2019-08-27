@@ -70,10 +70,6 @@ class AccountFilterViewSet(viewsets.ModelViewSet):
     serializer_class = AccountSerializer
     filter_class = AccountFilter
 
-    def get(self, request):
-	    account_num = request.GET.get("account_num")
-	    print("AC:"+account_num)
-
 class Trade_ListViewSet(viewsets.ModelViewSet):
 	queryset         = Trade_List.objects.all()
 	serializer_class = Trade_ListSerializer
