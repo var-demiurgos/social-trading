@@ -58,7 +58,9 @@ def trade(request):
 
 def last_login(request):
 	account_num = request.GET.get("account_num")
-	account  = Account.objects.get(account_num=account_num).update(last_login=timezone.now)
+	account  = Account.objects.get(account_num=account_num)
+	account.last_login = timezone.now
+	account.save()
 	return render(request, 'trade/account/html')
 
 class AccountViewSet(viewsets.ModelViewSet):
