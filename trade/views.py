@@ -7,6 +7,7 @@ from .forms import AccountForm
 from django.contrib.auth.views import LoginView
 from django.utils import timezone
 from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
 	return render(request, 'trade/index.html')
@@ -18,23 +19,23 @@ class TradeList(ListView):
     model = Trade_List
     template_name = 'trade/trade.html'
 
-class AccountList(ListView):
+class AccountList(LoginRequiredMixin, ListView):
     model = Account
     template_name = 'trade/account.html'
 
-class AccountEdit(UpdateView):
+class AccountEdit(LoginRequiredMixin, UpdateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
     success_url = "/trade/account/list"
 
-class AccountCreate(CreateView):
+class AccountCreate(LoginRequiredMixin, CreateView):
     model = Account
     form_class = AccountForm
     template_name = 'trade/account_form.html'
     success_url = "list"
 
-class AccountDelete(DeleteView):
+class AccountDelete(LoginRequiredMixin, DeleteView):
 	model = Account
 	success_url = "/trade/account/list"
 

@@ -2,7 +2,9 @@
 {% load static %}
 {% block content %}
 <div class="select">
+	{% if user.is_authenticated %}
 	<a href="{% url 'trade:account' %}"><div class="select__account"><p>アカウント一覧</p></div></a>
+	{% endif %}
 	<a href="{% url 'trade:trades' %}"><div class="select__trade"><p>トレード一覧</p></div></a>
 </div>
 <style type="text/css">
