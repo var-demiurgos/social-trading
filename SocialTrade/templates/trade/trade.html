@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <h2>現在のポジション</h2>
-	<table class="table">
+	<table class="table" id="now__trade">
 	<tr class="table__head">
 		<th>ポジション</th>
 		<th>取引量</th>
@@ -10,56 +10,81 @@
 		<th>利確</th>
 		<th>価格</th>
 	</tr>
-    {% for item in trade_list_list %}
-    {% if item.order_type == 0 or item.order_type == 1 %}
-    <tr class="table__item">
-    	{% if item.order_type == 0 %}
-        	<td>買い</td>
-        {% elif item.order_type == 1 %}
-        	<td>売り</td>
-        {% endif %}
+	{% for item in trade_list_list %}
+	{% if item.order_type == 0 or item.order_type == 1 %}
+	<tr class="table__item">
+		{% if item.order_type == 0 %}
+			<td>買い</td>
+		{% elif item.order_type == 1 %}
+			<td>売り</td>
+		{% endif %}
 		<td>{{ item.lot }}</td>
 		<td>{{ item.stoploss }}</td>
 		<td>{{ item.takeprofit }}</td>
 		<td>{{ item.open_price }}</td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-    </table>
+	</tr>
+	{% endif %}
+	{% endfor %}
+	</table>
 
-<h2>注文予定</h2>
-    <table class="table">
-    <tr class="table__head">
-        <th>ポジション</th>
-        <th>取引量</th>
-        <th>損切</th>
-        <th>利確</th>
-        <th>価格</th>
-    </tr>
-    {% for item in trade_list_list %}
-    {% if item.order_type == 2 or item.order_type == 3 or item.order_type == 4 or item.order_type == 5 %}
-    <tr class="table__item">
-        {% if item.order_type == 2 %}
-            <td>買い指値</td>
-        {% elif item.order_type == 3 %}
-            <td>売り指値</td>
-        {% elif item.order_type == 4 %}
-            <td>買い逆指値</td>
-        {% elif item.order_type == 5 %}
-            <td>売り逆指値</td>
-        {% endif %}
-        <td>{{ item.lot }}</td>
-        <td>{{ item.stoploss }}</td>
-        <td>{{ item.takeprofit }}</td>
-        <td>{{ item.open_price }}</td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-    </table>
-    <style type="text/css">
-        .table{
-            margin-top: 50px;
-                white-space: pre;
-        }   
-    </style>
+<h2 style="margin-top:50px;">注文予定</h2>
+	<table class="table" id="future__trade">
+	<tr class="table__head">
+		<th>ポジション</th>
+		<th>取引量</th>
+		<th>損切</th>
+		<th>利確</th>
+		<th>価格</th>
+	</tr>
+	{% for item in trade_list_list %}
+	{% if item.order_type == 2 or item.order_type == 3 or item.order_type == 4 or item.order_type == 5 %}
+	<tr class="table__item">
+		{% if item.order_type == 2 %}
+			<td>買い指値</td>
+		{% elif item.order_type == 3 %}
+			<td>売り指値</td>
+		{% elif item.order_type == 4 %}
+			<td>買い逆指値</td>
+		{% elif item.order_type == 5 %}
+			<td>売り逆指値</td>
+		{% endif %}
+		<td>{{ item.lot }}</td>
+		<td>{{ item.stoploss }}</td>
+		<td>{{ item.takeprofit }}</td>
+		<td>{{ item.open_price }}</td>
+	</tr>
+	{% endif %}
+	{% endfor %}
+	</table>
+	<style type="text/css">
+		.table{
+			margin-top: 50px;
+				white-space: pre;
+		}   
+	</style>
+	<div>
+		<script type="text/javascript">
+			$(function(){
+				if (window.matchMedia('screen and (max-width: 480px)').matches){
+					matrix_transform("#now__trade");
+					matrix_transform("#future__trade");
+				}
+			});
+			function matrix_transform(tableid){
+				tid = "#"+tableid;
+				//後で削除するため、既存の行にtemptrクラスをつける
+				$(tid+" tr").addClass("temptr");
+				//thead,tbodyは行列変換で意味をなさなくなるのでタグを除去する
+				$(tid+" thead,"+tid+" tbody").children().unwrap();
+				$(tid+" tr:first td,"+tid+" tr:first th").each(function(){
+					tds = $(this).index()+1;
+					$(tid).append("<tr />");
+					$(tid+" tr.temptr").each(function(){
+						$(tid+" tr:eq("+$(this).index()+") > :nth-child("+tds+")").clone(true).appendTo(tid+"tr:last");
+					});//tr.temptr each
+				});
+				$(tid+" tr.temptr").remove();
+				}
+		</script>
+	</div>
 {% endblock %}
