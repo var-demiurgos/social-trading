@@ -6,7 +6,7 @@ from .serializer import AccountSerializer, Trade_ListSerializer, AccountFilter
 from .forms import AccountForm
 from django.contrib.auth.views import LoginView
 from django.utils import timezone
-
+from django.http import HttpResponse
 
 def index(request):
 	return render(request, 'trade/index.html')
@@ -61,7 +61,7 @@ def last_login(request):
 	account  = Account.objects.get(account_num=account_num)
 	account.last_login = timezone.now()
 	account.save()
-	return render(request, 'trade/trade/html')
+	return HttpResponse("ok.")
 
 class AccountViewSet(viewsets.ModelViewSet):
 	queryset         = Account.objects.all()
