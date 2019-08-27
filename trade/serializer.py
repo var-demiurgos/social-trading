@@ -4,7 +4,7 @@ from .models import Account, Trade_List
 from django.utils import timezone
 
 class AccountSerializer(serializers.ModelSerializer):
-  	class Meta:
+	class Meta:
 		model = Account
 		fields = ('account_id', 'account_pass', 'account_num', 'active', 'post_time', 'last_login', 'comment')
 
