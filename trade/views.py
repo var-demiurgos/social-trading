@@ -56,10 +56,10 @@ def trade(request):
 	trade      = Trade_List.objects.update_or_create(ticket=ticket, defaults={"order_type":order_type, "lot":lot, "stoploss":stoploss, "takeprofit":takeprofit, "open_price":open_price})
 	return render(request, 'trade/account/html')
 
-# def last_login(request):
-# 	account_num = request.GET.get("account_num")
-# 	account  = Account.objects.get(account_num=account_num).update(last_login=timezone.now)
-# 	return render(request, 'trade/account/html')
+def last_login(request):
+	account_num = request.GET.get("account_num")
+	account  = Account.objects.get(account_num=account_num).update(last_login=timezone.now)
+	return render(request, 'trade/account/html')
 
 class AccountViewSet(viewsets.ModelViewSet):
 	queryset         = Account.objects.all()
