@@ -31,8 +31,9 @@ class TestSerializer(serializers.ModelSerializer):
 		fields = ('ticket','order_type','lot','stoploss','takeprofit','open_price','pair')
 
 
-class TestFilter(filters.FilterSet):
-	pairs = filters.CharFilter(lookup_expr='exact')
-	class Meta:
-		model = Test
-		fields = ('pairs')
+# class TestFilter(filters.FilterSet):
+# 	pair = filters.CharFilter(lookup_expr='exact')
+
+# 	class Meta:
+# 		model = Test
+# 		fields = ('pair')
