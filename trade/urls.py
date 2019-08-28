@@ -23,5 +23,7 @@ urlpatterns = [
     path('account/delete/<int:pk>', views.AccountDelete.as_view(), name='delete'),
     path('trade', views.trade, name="trade"),
     path('close', views.close, name="close"),
-    path('last', views.last_login, name="last")
+    path('last', views.last_login, name="last"),
+    path('testtrade', views.testtrade, name="testtrade"),
+    path('testclose', views.testclose, name="testclose"),
 ]

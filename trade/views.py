@@ -90,3 +90,20 @@ class TestFilterViewSet(viewsets.ModelViewSet):
 	queryset         = Test.objects.all()
 	serializer_class = TestSerializer
 	filter_class     = TestFilter
+
+def testclose(request):
+	ticket = request.GET.get("ticket")
+	trade  = Test.objects.get(ticket=ticket)
+	trade.delete()
+	return render(request, 'trade/account/html')
+
+def testtrade(request):
+	ticket     = request.GET.get("ticket")
+	order_type = request.GET.get("order_type")
+	lot        = request.GET.get("lot")
+	takeprofit = request.GET.get("takeprofit")
+	stoploss   = request.GET.get("stoploss")
+	open_price = request.GET.get("open_price")
+	pair       = request.GET.get("pair")
+	trade      = Test.objects.update_or_create(ticket=ticket, defaults={"order_type":order_type, "lot":lot, "stoploss":stoploss, "takeprofit":takeprofit, "open_price":open_price,"pair":pair})
+	return render(request, 'trade/account/html')
