@@ -31,3 +31,4 @@ class Test(models.Model):
 	takeprofit = models.CharField(max_length=100)
 	open_price = models.CharField(max_length=100)
 	pair       = models.CharField(max_length=30)
+	
