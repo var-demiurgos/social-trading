@@ -22,3 +22,12 @@ class Trade_List(models.Model):
 	stoploss   = models.TextField(max_length=100)
 	takeprofit = models.CharField(max_length=100)
 	open_price = models.CharField(max_length=100)
+
+class Test(models.Model):
+	ticket     = models.IntegerField()
+	order_type = models.IntegerField()
+	lot        = models.FloatField()
+	stoploss   = models.TextField(max_length=100)
+	takeprofit = models.CharField(max_length=100)
+	open_price = models.CharField(max_length=100)
+	pair       = models.CharField(max_length=30)

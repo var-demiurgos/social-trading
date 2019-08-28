@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django_filters import rest_framework as filters
-from .models import Account, Trade_List
+from .models import Account, Trade_List, Test
 from django.utils import timezone
 
 class AccountSerializer(serializers.ModelSerializer):
@@ -20,3 +20,20 @@ class Trade_ListSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Trade_List
 		fields = ('ticket','order_type','lot','stoploss','takeprofit','open_price')
+
+
+
+
+
+# class TestSerializer(serializers.ModelSerializer):
+# 	class Meta:
+# 		model = Test
+# 		fields = ('ticket','order_type','lot','stoploss','takeprofit','open_price','pair')
+
+
+# class TestFilter(filters.FilterSet):
+# 	pair = filters.CharFilter(lookup_expr='exact')
+
+# 	class Meta:
+# 		model = Test
+# 		fields = ('pair')

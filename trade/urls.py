@@ -9,6 +9,8 @@ router = routers.DefaultRouter()
 router.register(r'account', AccountViewSet)
 router.register(r'search_account', AccountFilterViewSet)
 router.register(r'trade_list', Trade_ListViewSet)
+# router.register(r'test', TestViewSet)
+# router.register(r'tset_trade_search', TestFilterViewSet)
 
 app_name='trade'
 urlpatterns = [

@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from rest_framework import viewsets, generics
-from .models import Account, Trade_List
+from .models import Account, Trade_List, Test
 from .serializer import AccountSerializer, Trade_ListSerializer, AccountFilter
 from .forms import AccountForm
 from django.contrib.auth.views import LoginView
@@ -69,10 +69,24 @@ class AccountViewSet(viewsets.ModelViewSet):
 	serializer_class = AccountSerializer
 
 class AccountFilterViewSet(viewsets.ModelViewSet):
-    queryset = Account.objects.all()
-    serializer_class = AccountSerializer
-    filter_class = AccountFilter
+	queryset         = Account.objects.all()
+	serializer_class = AccountSerializer
+	filter_class     = AccountFilter
 
 class Trade_ListViewSet(viewsets.ModelViewSet):
 	queryset         = Trade_List.objects.all()
 	serializer_class = Trade_ListSerializer
+
+
+
+
+
+# class TestViewSet(viewsets.ModelViewSet):
+# 	queryset         = Test.objects.all()
+# 	serializer_class = TestSerializer
+
+
+# class TestFilterViewSet(viewsets.ModelViewSet):
+# 	queryset         = Test.objects.all()
+# 	serializer_class = TestSerializer
+# 	filter_class     = TestFilter
