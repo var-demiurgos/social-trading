@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from rest_framework import viewsets, generics
 from .models import Account, Trade_List, Test
-from .serializer import AccountSerializer, Trade_ListSerializer, AccountFilter, TestSerializer
+from .serializer import AccountSerializer, Trade_ListSerializer, AccountFilter, TestSerializer, TestFilter
 from .forms import AccountForm
 from django.contrib.auth.views import LoginView
 from django.utils import timezone
@@ -86,7 +86,7 @@ class TestViewSet(viewsets.ModelViewSet):
 	serializer_class = TestSerializer
 
 
-# class TestFilterViewSet(viewsets.ModelViewSet):
-# 	queryset         = Test.objects.all()
-# 	serializer_class = TestSerializer
-# 	filter_class     = TestFilter
+class TestFilterViewSet(viewsets.ModelViewSet):
+	queryset         = Test.objects.all()
+	serializer_class = TestSerializer
+	filter_class     = TestFilter
