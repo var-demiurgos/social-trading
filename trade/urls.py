@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from rest_framework import routers
-from .views import AccountViewSet, Trade_ListViewSet, AccountFilterViewSet
+from .views import AccountViewSet, Trade_ListViewSet, AccountFilterViewSet,TestViewSet
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 
@@ -9,8 +9,7 @@ router = routers.DefaultRouter()
 router.register(r'account', AccountViewSet)
 router.register(r'search_account', AccountFilterViewSet)
 router.register(r'trade_list', Trade_ListViewSet)
-# router.register(r'test', TestViewSet)
-# router.register(r'tset_trade_search', TestFilterViewSet)
+router.register(r'tests', TestViewSet)
 
 app_name='trade'
 urlpatterns = [

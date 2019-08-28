@@ -25,10 +25,10 @@ class Trade_ListSerializer(serializers.ModelSerializer):
 
 
 
-# class TestSerializer(serializers.ModelSerializer):
-# 	class Meta:
-# 		model = Test
-# 		fields = ('ticket','order_type','lot','stoploss','takeprofit','open_price','pair')
+class TestSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Test
+		fields = ('ticket','order_type','lot','stoploss','takeprofit','open_price','pair')
 
 
 # class TestFilter(filters.FilterSet):
