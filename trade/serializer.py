@@ -32,7 +32,7 @@ class TestSerializer(serializers.ModelSerializer):
 
 
 class TestFilter(filters.FilterSet):
-	pair = filters.CharFilter(lookup_expr='exact')
+	pairs = filters.CharFilter(lookup_expr='exact')
 	class Meta:
 		model = Test
-		fields = ('pair')
+		fields = ('pairs')
