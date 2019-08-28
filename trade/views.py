@@ -3,6 +3,7 @@ from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from rest_framework import viewsets, generics
 from .models import Account, Trade_List, Test
 from .serializer import AccountSerializer, Trade_ListSerializer, AccountFilter, TestSerializer
+from .forms import AccountForm
 from django.contrib.auth.views import LoginView
 from django.utils import timezone
 from django.http import HttpResponse
