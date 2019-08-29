@@ -16,24 +16,24 @@ class Login(LoginView):
 	template_name = 'trade/login.html'
 
 class TradeList(ListView):
-    model = Trade_List
-    template_name = 'trade/trade.html'
+	model = Trade_List
+	template_name = 'trade/trade.html'
 
 class AccountList(LoginRequiredMixin, ListView):
-    model = Account
-    template_name = 'trade/account.html'
+	model = Account
+	template_name = 'trade/account.html'
 
 class AccountEdit(LoginRequiredMixin, UpdateView):
-    model = Account
-    form_class = AccountForm
-    template_name = 'trade/account_form.html'
-    success_url = "/trade/account/list"
+	model = Account
+	form_class = AccountForm
+	template_name = 'trade/account_form.html'
+	success_url = "/trade/account/list"
 
 class AccountCreate(LoginRequiredMixin, CreateView):
-    model = Account
-    form_class = AccountForm
-    template_name = 'trade/account_form.html'
-    success_url = "list"
+	model = Account
+	form_class = AccountForm
+	template_name = 'trade/account_form.html'
+	success_url = "list"
 
 class AccountDelete(LoginRequiredMixin, DeleteView):
 	model = Account
@@ -109,14 +109,14 @@ def testtrade(request):
 	return render(request, 'trade/account/html')
 
 class testTradeList(ListView):
-    model = Test
-    template_name = 'trade/trade_lists.html'
+	model = Test
+	template_name = 'trade/trade_lists.html'
 
 class testTradeList(ListView):
-    model = Test
-    template_name = 'trade/trade_pair.html'
+	model = Test
+	template_name = 'trade/trade_pair.html'
 
-    def get_context_data(self, **kwargs):
+	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		context['pair'] = Test.objects.filter(pair=self.kwargs["pair"])
 		context["pair_name"] = self.kwargs["pair"]
