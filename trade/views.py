@@ -107,3 +107,16 @@ def testtrade(request):
 	pair       = request.GET.get("pair")
 	trade      = Test.objects.update_or_create(ticket=ticket, defaults={"order_type":order_type, "lot":lot, "stoploss":stoploss, "takeprofit":takeprofit, "open_price":open_price,"pair":pair})
 	return render(request, 'trade/account/html')
+
+class testTradeList(ListView):
+    model = Test
+    template_name = 'trade/trade_lists.html'
+
+class testTradeList(ListView):
+    model = Test
+    template_name = 'trade/trade_pair.html'
+
+    def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['pair'] = Test.objects.filter(pair=self.kwargs["pair"])
+		context["pair_name"] = self.kwargs["pair"]

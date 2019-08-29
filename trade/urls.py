@@ -26,4 +26,7 @@ urlpatterns = [
     path('last', views.last_login, name="last"),
     path('testtrade', views.testtrade, name="testtrade"),
     path('testclose', views.testclose, name="testclose"),
+    path('trade/lists', views.testTradeList.as_view(), name='testtrades'),
+    path('trade/lists/<string:pair>', views.testpairTradeList.as_view(), name='tradepair'),
+
 ]

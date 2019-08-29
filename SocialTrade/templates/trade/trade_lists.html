@@ -1,0 +1,69 @@
+{% extends "trade/base.html" %}
+{% load static %}
+{% block content %}
+<h2>現在のポジション</h2>
+	<table class="table" id="now__trade">
+	<tr class="table__head">
+		<th>通貨ペア</th>
+		<th>ポジション</th>
+		<th>取引量</th>
+		<th>損切</th>
+		<th>利確</th>
+		<th>価格</th>
+	</tr>
+	{% for item in test_list %}
+	{% if item.order_type == 0 or item.order_type == 1 %}
+	<tr class="table__item">
+		<td><a href="{% url 'trade:tradepair' pair=item.pair %}">{{ item.pair }}</a></td>
+		{% if item.order_type == 0 %}
+			<td>買い</td>
+		{% elif item.order_type == 1 %}
+			<td>売り</td>
+		{% endif %}
+		<td>{{ item.lot }}</td>
+		<td>{{ item.stoploss }}</td>
+		<td>{{ item.takeprofit }}</td>
+		<td>{{ item.open_price }}</td>
+	</tr>
+	{% endif %}
+	{% endfor %}
+	</table>
+
+<h2 style="margin-top:50px;">注文予定</h2>
+	<table class="table" id="future__trade">
+	<tr class="table__head">
+		<th>通貨ペア</th>
+		<th>ポジション</th>
+		<th>取引量</th>
+		<th>損切</th>
+		<th>利確</th>
+		<th>価格</th>
+	</tr>
+	{% for item in test_list %}
+	{% if item.order_type == 2 or item.order_type == 3 or item.order_type == 4 or item.order_type == 5 %}
+	<tr class="table__item">
+		<td><a href="{% url 'trade:tradepair' pair=item.pair %}">{{ item.pair }}</a></td>
+		{% if item.order_type == 2 %}
+			<td>買い指値</td>
+		{% elif item.order_type == 3 %}
+			<td>売り指値</td>
+		{% elif item.order_type == 4 %}
+			<td>買い逆指値</td>
+		{% elif item.order_type == 5 %}
+			<td>売り逆指値</td>
+		{% endif %}
+		<td>{{ item.lot }}</td>
+		<td>{{ item.stoploss }}</td>
+		<td>{{ item.takeprofit }}</td>
+		<td>{{ item.open_price }}</td>
+	</tr>
+	{% endif %}
+	{% endfor %}
+	</table>
+	<style type="text/css">
+		.table{
+			margin-top: 50px;
+				white-space: pre;
+		}   
+	</style>
+{% endblock %}
