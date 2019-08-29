@@ -120,3 +120,5 @@ class testpairTradeList(ListView):
 		context = super().get_context_data(**kwargs)
 		context['pair'] = Test.objects.filter(pair=self.kwargs["pair"])
 		context["pair_name"] = self.kwargs["pair"]
+
+		return context
