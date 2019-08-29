@@ -112,7 +112,7 @@ class testTradeList(ListView):
 	model = Test
 	template_name = 'trade/trade_lists.html'
 
-class testTradeList(ListView):
+class testpairTradeList(ListView):
 	model = Test
 	template_name = 'trade/trade_pair.html'
 
