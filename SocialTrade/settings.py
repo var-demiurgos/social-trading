@@ -85,8 +85,13 @@ WSGI_APPLICATION = 'SocialTrade.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sampleapp_db',
+	'USER': 'root',
+	'PASSWORD': 'eHty9wY1u',
+	'OPTIONS':{
+		'init_command':"SET sql_mode='STRICT_TRANS_TABLES'",
+	}
     }
 }
 
@@ -141,8 +146,8 @@ LOGIN_REDIRECT_URL = 'trade:login'
 LOGIN_URL = 'trade:login'
 
 
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
@@ -157,8 +162,6 @@ try:
 except ImportError:
     pass
 
-import django_heroku
-django_heroku.settings(locals())
 
 CORS_ALLOW_CREDENTIALS = True # 追記 (ファイル末尾)
 CORS_ORIGIN_ALLOW_ALL = True 

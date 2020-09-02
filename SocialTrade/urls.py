@@ -20,7 +20,7 @@ from trade.urls import router as trade_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('trade.urls')),
+   # path('', include('trade.urls')),
     path('trade/', include('trade.urls')),
     path('api/', include(trade_router.urls)), 
 ]
